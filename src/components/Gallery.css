@@ -1,0 +1,27 @@
+/* Style Tombol Download */
+.btn-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px; /* Jarak icon ke teks */
+  
+  background-color: var(--text); /* Pakai warna teks (hitam/gelap) buat background */
+  color: var(--bg); /* Teksnya warna background (putih/terang) */
+  
+  padding: 12px 24px;
+  border-radius: 50px; /* Biar lonjong/capsule */
+  text-decoration: none; /* Hilangin garis bawah link */
+  font-weight: bold;
+  font-family: 'Inter', sans-serif;
+  
+  /* Animasi Halus */
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* Efek pas kursor nempel */
+.btn-download:hover {
+  background-color: var(--accent); /* Ganti warna accent pas hover (opsional) */
+  color: white;
+  transform: translateY(-3px); /* Tombol naik dikit */
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15); /* Bayangan makin tebel */
+}

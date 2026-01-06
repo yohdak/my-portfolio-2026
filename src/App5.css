@@ -1,0 +1,943 @@
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  --bg: #ffffff;
+  --card-bg: #f3f3f3;
+  --text: #1f1f1f;
+  --text-muted: #474747;
+  --accent: #9c9a0f;
+}
+
+body {
+    max-width: 100%;
+    width: 100%;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.logo { font-weight: bold; font-size: 1.5rem; }
+.links a { color: var(--text); text-decoration: none; margin-left: 20px; }
+
+
+.container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* Grid Project */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+/* Card Style */
+.card {
+  background: var(--card-bg);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.2s;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2,0.2);
+}
+.card:hover { transform: translateY(-5px); }
+
+.card-img-wrapper img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-content { padding: 1.5rem; }
+.tags { margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.tag {
+  background: rgba(56, 189, 248, 0.1);
+  color: var(--accent);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+}
+footer { text-align: left; padding: 4rem 0; color: var(--text-muted); }
+
+/* CONTACT SECTION */
+.contact-section {
+    margin-top: 4rem; /* Jarak jauh dari project (Space-XL) */
+    margin-bottom: 4rem;
+}
+
+.contact-container {
+    background: var(--bg);
+    border: 1px solid rgba(56, 189, 248, 0.1);
+    border-radius: 24px;
+    padding: 2rem;
+    margin: 0 auto;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+}
+
+/* Kiri: Teks */
+.contact-text {
+    flex: 1; /* Ambil ruang sisa (Gas Concept) */
+    max-width: 600px;
+}
+
+.icon-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(56, 189, 248, 0.1);
+    color: var(--accent);
+    padding: 6px 16px;
+    border-radius: 100px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+
+.contact-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.contact-text p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+}
+
+/* Kanan: Action */
+.contact-action {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Rata kanan */
+    gap: 1rem;
+}
+
+.btn-contact {
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background-color: var(--text); /* Tombol Putih Kontras */
+    color: var(--bg); /* Teks Hitam */
+    padding: 3px 16px;
+    border-radius: 12px;
+    font-weight: 800;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-contact:hover {
+    transform: scale(1.05); /* Efek membesar dikit */
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3); /* Glow putih */
+}
+
+.email-preview {
+    color: var(--text-muted);
+    font-family: monospace; /* Font koding biar estetik */
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+/* RESPONSIVE (Penting buat HP) */
+@media (max-width: 768px) {
+    .contact-container {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.5rem;
+        gap: 1.5rem;
+    }
+    
+    .contact-action {
+        align-items: center;
+        width: 100%;
+        flex-direction: column;
+    }
+    
+    .btn-contact {
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+        width: fit-content;
+        justify-content: center;
+    }
+}
+
+
+.btn-next {
+    display: inline-block;
+    margin-top: 1rem;
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* === BENTO GRID SECTION === */
+.bento-section {
+    margin-top: 6rem;
+    margin-bottom: 6rem;
+}
+
+.section-title {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    font-family: var(--font-heading);
+}
+
+.bento-container {
+    display: grid;
+    /* Grid 4 Kolom biar fleksibel */
+    grid-template-columns: repeat(4, 1fr); 
+    /* Tinggi baris otomatis, minimal 200px */
+    grid-auto-rows: minmax(200px, auto); 
+    gap: 1.5rem;
+}
+
+/* === BENTO ITEMS === */
+.bento-item {
+    background-color: var(--card-bg); /* Putih */
+    border-radius: 24px;
+    border: 0px solid var(--text-muted); /* Border tipis ala desainmu */
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    color: var(--text);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
+    /* Biar icon panah mojok di kanan atas */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Teks di bawah */
+}
+
+.bento-item:hover {
+    transform: translateY(-5px);
+}
+
+/* Logic Spanning (Tetris) */
+.span-2-col { grid-column: span 2; } /* Lebar */
+.span-2-row { grid-row: span 2; }    /* Tinggi */
+/* Kalau 'big', dia pake dua class di atas sekaligus */
+
+/* Gambar Background */
+.bento-bg {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    transition: transform 0.5s ease;
+}
+.bento-item:hover .bento-bg {
+    transform: translateY(-2px)/*scale(1.05); /* Zoom dikit pas hover */
+    
+}
+
+/* Konten Teks */
+.bento-content {
+    position: relative;
+    z-index: 1;
+    padding: 1.5rem;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); /* Gradasi biar teks kebaca */
+    color: white; /* Teks jadi putih kalau ada gambar */
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+/* Kalau KOTAK POLOS (Gak ada gambar), warnanya beda */
+.bento-content.text-only {
+    background: var(--primary); /* Kuning */
+    color: var(--text); /* Teks Hitam */
+}
+
+.bento-sub {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.8;
+}
+
+.bento-title {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    margin: 0;
+    line-height: 1.1;
+}
+
+.bento-icon {
+    background: white;
+    color: black;
+    padding: 8px;
+    border-radius: 50%;
+    display: flex;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 1024px) {
+    .bento-container {
+        grid-template-columns: repeat(2, 1fr); /* Tablet jadi 2 kolom */
+    }
+}
+
+@media (max-width: 600px) {
+    .bento-container {
+        grid-template-columns: 1fr; /* HP jadi 1 kolom semua */
+    }
+    /* Reset spanning di HP biar rapi lurus ke bawah */
+    .span-2-col, .span-2-row { grid-column: span 1; grid-row: span 1; }
+    .bento-item { min-height: 250px; }
+}
+
+/* === FOOTER PROFESSIONAL === */
+.footer-section {
+    background-color: var(--bg); /* Warna background sama dengan body */
+    border-top: 1px solid var(--text); /* Garis pemisah atas */
+    margin-top: 8rem;
+    padding-top: 4rem;
+    color: var(--text);
+}
+
+.footer-container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+/* Layout 4 Kolom */
+.footer-top {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr; /* Kolom 1 lebih lebar */
+    gap: 2rem;
+}
+
+/* Typography Footer */
+.footer-logo {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    letter-spacing: -1px;
+}
+
+.footer-tagline {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    max-width: 300px;
+    line-height: 1.6;
+}
+
+.footer-col h4 {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+}
+
+/* Links Styling */
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: var(--text);
+    font-weight: 500;
+    transition: color 0.2s, padding-left 0.2s;
+    display: inline-block;
+}
+
+.footer-links a:hover {
+    color: var(--accent); /* Warna Hijau Teal/Kuning */
+    padding-left: 5px; /* Efek geser dikit pas hover */
+}
+
+.link-with-icon {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.footer-mail {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: var(--text);
+    font-weight: bold;
+    border-bottom: 1px solid var(--text); /* Garis bawah custom */
+    padding-bottom: 2px;
+}
+
+/* === BIG TEXT & BOTTOM === */
+.footer-bottom {
+    border-top: 1px solid rgba(0,0,0,0.1); /* Garis tipis */
+    padding: 2rem 0;
+}
+
+.big-text {
+    font-family: var(--font-heading);
+    font-size: clamp(3rem, 10vw, 8rem); /* Responsif: minimal 3rem, maksimal 8rem */
+    font-weight: 800;
+    color: rgba(0,0,0,0.05); /* Hampir transparan (Watermark effect) */
+    text-align: center;
+    line-height: 0.8;
+    margin-bottom: 2rem;
+    user-select: none; /* Biar gak bisa diblok teksnya */
+}
+
+.copyright-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.legal-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    margin-left: 1.5rem;
+}
+
+/* RESPONSIVE TABLET & HP */
+@media (max-width: 768px) {
+    .footer-top {
+        grid-template-columns: 1fr; /* Jadi 1 kolom lurus ke bawah */
+        gap: 3rem;
+        text-align: center;
+    }
+    
+    .footer-tagline {
+        margin: 0 auto; /* Tengahin tagline */
+    }
+    
+    .footer-links {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .copyright-row {
+        flex-direction: column-reverse;
+        gap: 1rem;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .legal-links a {
+        margin: 0 10px; /* Jarak antar link di HP */
+    }
+}
+
+
+/* === STANDALONE PROJECT DETAIL === */
+
+/* 1. Wrapper Utama: Menutup seluruh layar dengan warna putih */
+.project-detail-page {
+  background-color: #ffffff;
+  min-height: 100vh;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9999; /* Paling atas, menutupi navbar asli */
+}
+
+/* 2. Tombol Close Melayang */
+.close-button {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  background: black;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  z-index: 10000;
+  transition: transform 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.close-button:hover {
+  transform: scale(1.05);
+  background: #333;
+}
+
+/* 3. Container Tengah */
+.content-container {
+  max-width: 1000px; /* Lebar optimal buat baca & lihat gambar */
+  margin: 0 auto;
+  padding: 80px 20px 100px 20px;
+}
+
+/* 4. Header Style */
+.project-header h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #111;
+  margin-bottom: 20px;
+  line-height: 1.1;
+}
+
+.meta-info p {
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.6;
+  max-width: 100%;
+}
+
+.pill {
+  display: inline-block;
+  background: #f0f0f0;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+/* 5. Tumpukan Gambar (Stack) */
+.image-stack {
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px; /* Jarak antar gambar */
+}
+
+.image-wrapper {
+  width: 100%;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08); /* Shadow halus biar pop-up */
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Footer di bawah */
+.project-footer {
+  text-align: center;
+  border-top: 1px solid #eee;
+  color: #888;
+}
+
+.next-link {
+  color: black;
+  font-weight: bold;
+  text-decoration: underline;
+  margin-top: 10px;
+  display: inline-block;
+}
+
+/* Responsive buat HP */
+@media (max-width: 768px) {
+  .project-header h1 { font-size: 2rem; }
+  .close-button { top: 20px; right: 20px; padding: 10px 16px; }
+  .close-button span { display: none; } /* Sembunyikan tulisan 'CLOSE' di HP, ikon aja */
+}
+
+/* === LIGHTBOX / FULLSCREEN ZOOM === */
+
+/* Ubah kursor jadi kaca pembesar pas hover gambar */
+.zoomable-image {
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+/* Efek hover dikit biar user tau bisa diklik */
+.image-wrapper:hover .zoomable-image {
+  opacity: 0.95;
+}
+
+/* Layar Hitam Fullscreen */
+.lightbox-overlay {
+  position: fixed; /* Nempel di layar, gak ikut scroll */
+  top: 0; 
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  
+  background-color: rgba(0, 0, 0, 0.95); /* Hitam pekat 95% */
+  z-index: 99999; /* Paling atas dari segalanya */
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  cursor: default;
+  animation: fadeIn 0.2s ease-out; /* Animasi muncul halus */
+}
+
+/* Gambar di dalam Lightbox */
+.lightbox-img {
+  max-width: 95%;   /* Mentok lebar layar */
+  max-height: 95%;  /* Mentok tinggi layar */
+  object-fit: contain; /* Pastikan gambar utuh gak kepotong */
+  border-radius: 4px;
+  box-shadow: 0 0 50px rgba(0,0,0,0.5);
+}
+
+/* Tombol Close di Lightbox */
+.lightbox-close {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  color: white;
+  cursor: pointer;
+  background: rgba(255,255,255,0.1);
+  padding: 8px;
+  border-radius: 50%;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+
+/* ... CSS Lightbox yang sebelumnya ... */
+
+/* --- TOMBOL NAVIGASI NEXT/PREV --- */
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%); /* Tengah vertikal */
+  background: rgba(255, 255, 255, 0.1); /* Transparan */
+  border: none;
+  color: white;
+  padding: 20px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100000; /* Di atas gambar */
+}
+
+.nav-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-50%) scale(1.1); /* Zoom dikit */
+}
+
+/* Posisi Kiri & Kanan */
+.nav-btn.left { left: 20px; }
+.nav-btn.right { right: 20px; }
+
+/* Counter Halaman di Bawah */
+.slide-counter {
+  position: absolute;
+  bottom: 30px;
+  color: white;
+  font-family: monospace;
+  font-size: 1.2rem;
+  background: rgba(0,0,0,0.5);
+  padding: 5px 15px;
+  border-radius: 20px;
+}
+
+/* RESPONSIVE DI HP: Tombol jangan nutupin gambar */
+@media (max-width: 768px) {
+  .nav-btn {
+     padding: 10px;
+     background: rgba(0,0,0,0.5); /* Lebih gelap biar kelihatan */
+  }
+  .nav-btn.left { left: 10px; }
+  .nav-btn.right { right: 10px; }
+}
+
+
+/* === PINTEREST GRID STYLE === */
+
+.pinterest-grid {
+  /* Kolom Fix 5 Biji */
+  column-count: 5;
+  
+  /* Jarak antar kolom */
+  column-gap: 15px; 
+  
+  width: 100%;
+}
+
+.pin-item {
+  /* Mencegah item kepotong pas pindah kolom */
+  break-inside: avoid;
+  
+  /* Jarak ke bawah */
+  margin-bottom: 15px;
+  
+  display: block;
+  position: relative; /* Penting buat posisi overlay */
+  border-radius: 12px;
+  overflow: hidden; /* Biar gambar gak bocor keluar radius */
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.pin-item img {
+  width: 100%;
+  height: auto; /* Height menyesuaikan gambar aslinya */
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+/* === HOVER EFFECT (Overlay) === */
+/* === UPDATE BAGIAN INI SAJA === */
+
+.pin-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  
+  /* Background Gradasi (Biar teks bawah lebih kebaca tapi atas tetep bening) */
+  background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0) 100%);
+  
+  /* Flexbox: Dorong ke Bawah (flex-end) & Kiri (flex-start) */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* Vertikal: Bawah */
+  align-items: flex-start;   /* Horizontal: Kiri */
+  text-align: left;
+  
+  opacity: 0;
+  transition: opacity 0.3s ease;
+   /* Jarak dari pinggir kiri & bawah */
+}
+
+/* JUDUL (h3) */
+.pin-overlay h3 {
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+  margin-left: 10px;
+  
+  /* --- JURUS TITIK TIGA (...) --- */
+  max-width: 90%;          /* Batasi lebar cuma 2/3 (sekitar 70%) */
+  white-space: nowrap;     /* Paksa teks jadi 1 baris, gak boleh turun */
+  overflow: hidden;        /* Sisa teks yang kepanjangan diumpetin */
+  text-overflow: ellipsis; /* Sisa teks diganti jadi '...' */
+  
+  /* Animasi bawaan */
+  transform: translateY(20px);
+  transition: transform 0.3s ease;
+}
+
+/* KATEGORI (Tag) */
+.pin-tag {
+  color: #ccc;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  width: 100%;
+  
+  /* --- JURUS TITIK-TITIK (...) --- */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  
+  transform: translateY(10px);
+  transition: transform 0.3s ease 0.1s;
+  max-width: 60%; /* Tag biasanya lebih pendek, kasih 60% aja */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  /* --- PASTIKAN INI ADA --- */
+  display: block; /* Biar dia punya baris sendiri di bawah judul */
+  color: #ccc;    /* Warna abu terang */
+  margin-bottom: 10px;
+  margin-left: 10px; /* Jarak dikit dari judul H3 */
+  width: 100%;     /* Full width biar bisa ellipsis */
+  
+  /* --- SOLUSI TEXT HILANG DI FLEXBOX --- */
+  min-width: 0;    /* Wajib di flex container biar text-overflow jalan */
+  
+  /* --- JURUS TITIK-TITIK (...) --- */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  
+  /* Efek Animasi (Dibikin simpel dulu) */
+  opacity: 0.8; 
+  transition: all 0.3s ease;
+}
+
+/* HOVER STATE (Tetap sama logikanya) */
+.pin-item:hover .pin-overlay {
+  opacity: 1;
+}
+
+.pin-item:hover img {
+  transform: scale(1.05);
+}
+
+.pin-item:hover h3, 
+.pin-item:hover .pin-tag {
+  transform: translateY(0);
+}
+/* === RESPONSIVE WAJIB (Biar di HP gak kekecilan) === */
+
+@media (max-width: 1200px) {
+  .pinterest-grid { column-count: 4; }
+}
+
+@media (max-width: 900px) {
+  .pinterest-grid { column-count: 3; }
+}
+
+@media (max-width: 600px) {
+  .pinterest-grid { column-count: 2; } /* HP Minimal 2 kolom biar mirip Pinterest app */
+}
+
+/* === VIDEO PLAYER CONTAINER === */
+.video-container {
+  position: relative;
+  width: 100%;
+  
+  /* Trik bikin rasio 16:9 yang responsif */
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+  
+  margin-top: 40px; /* Jarak dari teks header */
+  margin-bottom: 40px; /* Jarak ke gambar screenshot di bawah */
+  
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  background: #000; /* Background hitam kalau loading */
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* === LAYOUT KHUSUS: CAROUSEL IG === */
+.carousel-container {
+  width: 100%;
+  margin: 40px 0;
+  position: relative;
+}
+
+.carousel-track {
+  display: flex;             /* Berjejer ke samping */
+  overflow-x: auto;          /* Scroll horizontal */
+  scroll-snap-type: x mandatory; /* Biar berhenti pas di tengah gambar (Snap) */
+  gap: 0;                    /* GAP 0 BIAR NYAMBUNG (Seamless) */
+  
+  /* Sembunyiin Scrollbar biar bersih */
+  scrollbar-width: none;     /* Firefox */
+  -ms-overflow-style: none;  /* IE */
+}
+
+.carousel-track::-webkit-scrollbar { 
+  display: none; /* Chrome/Safari */
+}
+
+.carousel-img {
+  /* Ukuran Gambar */
+  width: 100%;              /* 1 gambar menuhin lebar container (biasanya HP) */
+  max-width: 500px;         /* Di desktop jangan kegedean, max segini */
+  height: auto;
+  flex-shrink: 0;           /* Jangan mau dipenyet */
+  
+  scroll-snap-align: center; /* Pas berhenti scroll, gambar di tengah */
+  cursor: pointer;
+  object-fit: cover;
+  
+  /* Biar misah dikit kalau di desktop lebar banget, opsional: */
+  /* margin-right: 10px; */ 
+}
+
+/* Hint Text kecil di bawah */
+.carousel-hint {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #666;
+  margin-top: 10px;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.5; }
+  50% { opacity: 1; }
+  100% { opacity: 0.5; }
+}
+
+/* Desktop Adjustment: Biar carousel gak melar aneh di layar lebar */
+@media (min-width: 768px) {
+  .carousel-track {
+    justify-content: flex-start; /* Mulai dari kiri */
+    gap: 20px; /* Di desktop kasih jarak dikit gapapa biar enak liatnya */
+  }
+  .carousel-img {
+    border-radius: 8px; /* Kasih radius dikit di desktop */
+  }
+}
+
+/* Tambahkan ini di Hero.css */
+
+.social-links {
+  display: flex;
+  gap: 1.5rem; /* Jarak antar ikon */
+  justify-content: flex-start; /* Atau 'center' jika layoutmu rata tengah */
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.social-links a {
+  color: var(--text); /* Sesuaikan dengan warna teks websitemu */
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.social-links a:hover {
+  color: #00bcd4; /* Warna aksen saat hover (misal cyan/biru) */
+  transform: translateY(-3px); /* Efek naik sedikit saat di-hover */
+}
+
+/* Pastikan hero-text bisa menampung elemen baru dengan rapi */
+.hero-text {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center;  <-- Aktifkan ini jika ingin semua rata tengah */
+}

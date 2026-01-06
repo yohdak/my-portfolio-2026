@@ -1,0 +1,30 @@
+/* Container Utama: Fokus di Tengah, gak lebar-lebar banget */
+.ppt-container {
+    max-width: 100%; /* Ukuran pas buat baca & liat gambar */
+    margin: 25px 25px;
+    padding: 2rem;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: var(--text-muted);
+}
+
+/* Header */
+.ppt-header {
+    margin-bottom: 3rem;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    padding-bottom: 1.5rem;
+}
+
+.btn-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: var(--text-muted);
+    font-weight: 500;
+    margin-bottom: 1rem;
+    transition: color 0.2s;
+}
+.btn-back:hover { color: var(--text); }
+

@@ -1,0 +1,11 @@
+.container-detail {
+    max-width: 100%;
+    margin: 25px 800px;
+    padding: 500;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: var(--text-muted);
+    justify-content: center;
+    align-items: center;
+}
