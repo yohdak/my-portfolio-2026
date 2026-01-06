@@ -38,7 +38,6 @@ const Home = () => {
       </section>
 
       <Contact data={contactConfig} />
-      <Footer /> 
 
     </div>
     </>
