@@ -29,6 +29,7 @@ export const projects = [
     // Opsi: Tambah poster (gambar cover sebelum video diplay) biar gak hitam doang
     videoPoster: "/images/output_por4/slide_1.png", 
   },
+  
   {
     id: "pkkmb-fmipa",
     title: "Pkkmb Logo",
@@ -144,6 +145,16 @@ export const projects = [
        "/images/Bay-city/slide_3.png",
     ],
     tags: ["Logo Design", "Medical Branding"]
+  },
+  {
+    id: "orbitalism",
+    title: "Orbitalism",
+    category: "Web Experiment",
+    image: "/images/image.png",
+    description: "An interactive 3D web experiment exploring the complexities of celestial mechanics. This project visualizes various planetary models—including Heliocentric and Geocentric systems—rendered in real-time using WebGL. It demonstrates the interplay between orbital physics and front-end performance, offering an immersive educational experience.",
+    
+    // TAMBAH LINK INI (Link Vercel project kedua):
+    demoUrl: "https://orbitalismbuh.vercel.app/", 
   },
   {
     id: "Adroit",
