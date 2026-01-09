@@ -19,21 +19,50 @@ const Home = () => {
           {/* CONTAINER PINTEREST (5 Kolom) */}
           <div className="pinterest-grid">
               
-              {projects.map((item) => (
-                  <Link to={`/project/${item.id}`} key={item.id} className="pin-item">
-                      
-                      {/* Gambar (Width 100%, Height Auto) */}
-                      <img src={item.image} alt={item.title} loading="lazy" />
-                      
-                      {/* Overlay (Muncul pas Hover) */}
-                      <div className="pin-overlay">
+              {projects.map((item) => {
+  // === LOGIC PILIH JALUR ===
+                
+                // OPSI 1: Kalo ada directLink -> Pake tag <a> (Link Keluar)
+                if (item.directLink) {
+                  return (
+                    <a 
+                      href={item.directLink} 
+                      key={item.id}
+                      className="pin-item"
+                      target="_blank"             // Buka di tab baru (biar portfolio lu gak ketutup)
+                      rel="noopener noreferrer"   // Keamanan standar
+                    >
+                      <div className="pin-content">
+                        <img src={item.image} alt={item.title} />
+                        <div className="overlay">
                           <h3>{item.title}</h3>
-                          <span className="pin-tag">{item.category}</span>
+                          <p>{item.category}</p>
+                          {/* Kasih icon panah dikit biar tau ini link luar */}
+                          <span style={{fontSize:'0.8rem'}}>↗ Open Website</span>
+                        </div>
                       </div>
+                    </a>
+                  );
+                }
 
+                // OPSI 2: Kalo project biasa -> Pake tag <Link> (Masuk Detail)
+                return (
+                  <Link 
+                    to={`/project/${item.id}`} 
+                    key={item.id} 
+                    className="pin-item"
+                    onClick={saveScrollPosition} // Fitur scroll balik yang tadi
+                  >
+                    <div className="pin-content">
+                      <img src={item.image} alt={item.title} />
+                      <div className="overlay">
+                          <h3>{item.title}</h3>
+                          <p>{item.category}</p>
+                      </div>
+                    </div>
                   </Link>
-              ))}
-
+                );
+              })}
           </div>
       </section>
 
