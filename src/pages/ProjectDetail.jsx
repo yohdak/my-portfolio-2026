@@ -135,7 +135,7 @@ const ProjectDetail = () => {
                   transition: '0.3s'
                 }}
                 // Efek hover simpel (opsional, bisa dipindah ke CSS)
-                onMouseOver={(e) => { e.target.style.backgroundColor = 'transparent'; e.target.style.color = 'white'; }}
+                onMouseOver={(e) => { e.target.style.backgroundColor = 'transparent'; e.target.style.color = 'blue'; }}
                 onMouseOut={(e) => { e.target.style.backgroundColor = 'white'; e.target.style.color = 'black'; }}
               >
                 Visit Live Site ↗
