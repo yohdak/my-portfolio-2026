@@ -1,16 +1,16 @@
-import { useLayoutEffect } from 'react'; // <--- TAMBAH INI (PENTING)
-import { Link } from 'react-router-dom';
+import { useLayoutEffect } from 'react'; // <--- TAMBAH INI
+import { Link } from 'react-router-dom'; 
 import Hero from '../components/Hero';
 import Contact from '../components/Contact';
-// import Footer from '../components/Footer'; // Kalau gak dipake bisa di-hide
-import BentoGrid from '../components/BentoGrid'; 
-import { bentoItems, profileData, projects, contactConfig } from '../data';
+// import Footer from '../components/Footer'; 
+// import BentoGrid from '../components/BentoGrid'; 
+import { profileData, projects, contactConfig } from '../data';
 import Navbar from '../components/Navbar';
 
 const Home = () => {
 
   // === 1. JURUS PENGEMBALI POSISI (Restore Scroll) ===
-  // Pas halaman dimuat, cek ada catetan posisi scroll gak?
+  // Setiap kali Home dimuat, dia cek "Tadi gue lagi di posisi mana?"
   useLayoutEffect(() => {
     const savedPosition = sessionStorage.getItem('homeScrollPos');
     if (savedPosition) {
@@ -19,7 +19,7 @@ const Home = () => {
   }, []);
 
   // === 2. FUNGSI PENCATAT POSISI ===
-  // Dipanggil pas lu klik salah satu project
+  // Dipanggil pas lu klik project yang buka halaman detail
   const saveScrollPosition = () => {
     sessionStorage.setItem('homeScrollPos', window.scrollY);
   };
@@ -30,9 +30,6 @@ const Home = () => {
     <div className="container">
       <Hero data={profileData} />
       
-      {/* Kalau mau pake BentoGrid, taruh sini. Kalau enggak, skip aja */}
-      {/* <BentoGrid items={bentoItems} /> */}
-      
       <section id="projects" className="projects-section">
           <h2 style={{marginBottom: '30px'}}>Selected Works</h2>
           
@@ -40,50 +37,49 @@ const Home = () => {
           <div className="pinterest-grid">
               
               {projects.map((item) => {
-                // === LOGIC PILIH JALUR ===
-                
-                // OPSI 1: Kalo ada directLink -> Pake tag <a> (Link Keluar)
-                // Link keluar GAK PERLU saveScrollPosition (karena buka tab baru)
-                if (item.directLink) {
-                  return (
-                    <a 
-                      href={item.directLink} 
-                      key={item.id}
-                      className="pin-item"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <div className="pin-content">
-                        <img src={item.image} alt={item.title} />
-                        <div className="overlay">
-                          <h3>{item.title}</h3>
-                          <p>{item.category}</p>
-                          <span style={{fontSize:'0.8rem'}}>↗ Open Website</span>
-                        </div>
-                      </div>
-                    </a>
-                  );
-                }
+                  
+                  // === LOGIC PILIH JALUR ===
 
-                // OPSI 2: Kalo project biasa -> Pake tag <Link> (Masuk Detail)
-                // Link dalam WAJIB PAKE onClick={saveScrollPosition}
-                return (
-                  <Link 
-                    to={`/project/${item.id}`} 
-                    key={item.id} 
-                    className="pin-item"
-                    onClick={saveScrollPosition} // <--- Skrg ini aman karena fungsinya udah ada di atas
-                  >
-                    <div className="pin-content">
-                      <img src={item.image} alt={item.title} />
-                      <div className="overlay">
-                          <h3>{item.title}</h3>
-                          <p>{item.category}</p>
-                      </div>
-                    </div>
-                  </Link>
-                );
+                  // KASUS A: Kalau ada directLink -> Pake tag <a> (Link Keluar)
+                  if (item.directLink) {
+                    return (
+                      <a 
+                        href={item.directLink} 
+                        key={item.id} 
+                        className="pin-item"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        // Gak perlu saveScrollPosition karena dia buka tab baru
+                      >
+                          <img src={item.image} alt={item.title} loading="lazy" />
+                          
+                          <div className="pin-overlay">
+                              <h3>{item.title}</h3>
+                              {/* Tambah panah dikit biar tau ini link keluar */}
+                              <span className="pin-tag">{item.category} ↗</span>
+                          </div>
+                      </a>
+                    );
+                  }
+
+                  // KASUS B: Project Biasa -> Pake tag <Link> (Masuk Detail Internal)
+                  return (
+                      <Link 
+                        to={`/project/${item.id}`} 
+                        key={item.id} 
+                        className="pin-item"
+                        onClick={saveScrollPosition} // <--- Fungsi Scroll dipanggil disini
+                      >
+                          <img src={item.image} alt={item.title} loading="lazy" />
+                          
+                          <div className="pin-overlay">
+                              <h3>{item.title}</h3>
+                              <span className="pin-tag">{item.category}</span>
+                          </div>
+                      </Link>
+                  );
               })}
+
           </div>
       </section>
 

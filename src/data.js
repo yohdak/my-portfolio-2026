@@ -154,7 +154,7 @@ export const projects = [
     description: "An interactive 3D web experiment exploring the complexities of celestial mechanics. This project visualizes various planetary models—including Heliocentric and Geocentric systems—rendered in real-time using WebGL. It demonstrates the interplay between orbital physics and front-end performance, offering an immersive educational experience.",
     
     // TAMBAH LINK INI (Link Vercel project kedua):
-    directLink: "orbitalism.vercel.app", 
+    directLink: "https://orbitalism.vercel.app/", 
   },
   {
     id: "Adroit",
