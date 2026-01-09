@@ -117,6 +117,30 @@ const ProjectDetail = () => {
           <div className="meta-info">
              <span className="pill">{project.category}</span>
              <p>{project.description}</p>
+             {project.demoUrl && (
+              <a 
+                href={project.demoUrl} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                style={{
+                  display: 'inline-block',
+                  marginTop: '20px',
+                  padding: '10px 20px',
+                  backgroundColor: 'white',
+                  color: 'black',
+                  textDecoration: 'none',
+                  fontWeight: 'bold',
+                  borderRadius: '30px',
+                  border: '1px solid white',
+                  transition: '0.3s'
+                }}
+                // Efek hover simpel (opsional, bisa dipindah ke CSS)
+                onMouseOver={(e) => { e.target.style.backgroundColor = 'transparent'; e.target.style.color = 'white'; }}
+                onMouseOut={(e) => { e.target.style.backgroundColor = 'white'; e.target.style.color = 'black'; }}
+              >
+                Visit Live Site ↗
+              </a>
+            )}
           </div>
         </div>
 
