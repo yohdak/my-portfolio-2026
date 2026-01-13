@@ -34,11 +34,20 @@ body {
 }
 
 /* Grid Project */
+/* App5.css - Cari bagian .grid */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  /* Ubah 300px jadi 250px atau 100% biar aman di HP kecil */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
   gap: 2rem;
   margin-top: 2rem;
+}
+
+/* Tambahan: Pastikan di HP jadi 1 kolom penuh */
+@media (max-width: 600px) {
+  .grid {
+     grid-template-columns: 1fr; /* Paksa 1 kolom */
+  }
 }
 
 /* Card Style */
@@ -75,7 +84,7 @@ footer { text-align: left; padding: 4rem 0; color: var(--text-muted); }
 }
 
 .contact-container {
-    background: var(--bg);
+    background: var(--text);
     border: 1px solid rgba(56, 189, 248, 0.1);
     border-radius: 24px;
     padding: 2rem;
@@ -940,4 +949,15 @@ footer { text-align: left; padding: 4rem 0; color: var(--text-muted); }
   display: flex;
   flex-direction: column;
   /* align-items: center;  <-- Aktifkan ini jika ingin semua rata tengah */
+}
+
+/* App5.css */
+
+/* ... kode CSS lainnya ... */
+
+/* KHUSUS MOBILE: Hilangkan tombol navigasi kiri/kanan di Lightbox */
+@media (max-width: 768px) {
+  .nav-btn {
+    display: none !important;
+  }
 }

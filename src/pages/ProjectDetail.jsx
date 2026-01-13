@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useLayoutEffect } from 'react'; // <--- Tambah useLayoutEffect
 import { useParams, Link } from 'react-router-dom';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { projects } from '../data';
@@ -16,10 +16,19 @@ const ProjectDetail = () => {
   // Cari Project (Aman buat ID Angka/Huruf)
   const project = projects.find((p) => String(p.id) === id);
   const slides = project?.gallery || [project?.image];
-
-  // 1. SCROLL KE ATAS SETIAP BUKA HALAMAN (Standard Web)
-  useEffect(() => {
-    window.scrollTo(0, 0);
+const touchStartRef = useRef(null);
+// 1. SCROLL KE ATAS (INSTANT / TELEPORT)
+  // Ganti useEffect jadi useLayoutEffect biar jalan sebelum layar digambar
+  useLayoutEffect(() => {
+    // Matikan smooth scroll CSS global sebentar
+    document.documentElement.style.scrollBehavior = 'auto';
+    
+    // Paksa pindah ke titik 0,0 secara INSTANT (tanpa animasi)
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'instant' 
+    });
   }, [id]);
 
   // 2. RESET LIGHTBOX SAAT GANTI SLIDE
@@ -46,6 +55,37 @@ const ProjectDetail = () => {
   const handleNext = (e) => { e?.stopPropagation(); setCurrentIndex((prev) => (prev === slides.length - 1 ? 0 : prev + 1)); };
   const handlePrev = (e) => { e?.stopPropagation(); setCurrentIndex((prev) => (prev === 0 ? slides.length - 1 : prev - 1)); };
   
+  // ... handleNext & handlePrev yang lama ...
+
+  // === FITUR SWIPE (Carousel Mobile) - MULAI ===
+  // Bisa dihapus blok ini kalau bosen
+  
+  const handleTouchStart = (e) => {
+    // Cuma aktifin swipe kalau gambar TIDAK sedang di-zoom
+    if (zoomLevel === 1) {
+      touchStartRef.current = e.changedTouches[0].clientX;
+    }
+  };
+
+  const handleTouchEnd = (e) => {
+    // Safety check: Kalau lagi zoom atau touch gak valid, stop.
+    if (zoomLevel > 1 || touchStartRef.current === null) return;
+
+    const touchEndX = e.changedTouches[0].clientX;
+    const diff = touchStartRef.current - touchEndX;
+    const threshold = 50; // Minimal geser 50px baru dianggap swipe
+
+    if (diff > threshold) {
+      handleNext(); // Geser ke Kiri -> Next Slide
+    } else if (diff < -threshold) {
+      handlePrev(); // Geser ke Kanan -> Prev Slide
+    }
+
+    touchStartRef.current = null; // Reset
+  };
+  // === FITUR SWIPE - SELESAI ===
+
+  // ... sisa kode handleWheel dll ...
   const handleWheel = (e) => {
     e.stopPropagation();
     if (e.deltaY < 0) setZoomLevel((p) => Math.min(p + 0.2, 4));
@@ -84,6 +124,8 @@ const ProjectDetail = () => {
             className="lightbox-overlay" 
             onClick={() => setCurrentIndex(null)}
             onWheel={handleWheel}
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
             onMouseMove={handleMouseMove}
             onMouseUp={handleMouseUp}
             onMouseLeave={handleMouseUp}

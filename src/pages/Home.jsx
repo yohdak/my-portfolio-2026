@@ -11,10 +11,26 @@ const Home = () => {
 
   // === 1. JURUS PENGEMBALI POSISI (Restore Scroll) ===
   // Setiap kali Home dimuat, dia cek "Tadi gue lagi di posisi mana?"
+// === 1. JURUS PENGEMBALI POSISI (Restore Scroll) ===
   useLayoutEffect(() => {
     const savedPosition = sessionStorage.getItem('homeScrollPos');
+    
     if (savedPosition) {
-      window.scrollTo(0, parseInt(savedPosition));
+      // Trik: Paksa CSS biar gak smooth scroll dulu sebentar
+      document.documentElement.style.scrollBehavior = 'auto';
+      
+      // Langsung teleport ke posisi
+      window.scrollTo({
+        top: parseInt(savedPosition),
+        left: 0,
+        behavior: 'instant' // <--- Paksa Instan
+      });
+
+      // Balikin settingan scroll (opsional, kalau mau smooth lagi buat hal lain)
+      // Kalau gamau ribet, baris bawah ini hapus aja
+      setTimeout(() => {
+        document.documentElement.style.scrollBehavior = ''; 
+      }, 0);
     }
   }, []);
 
@@ -82,8 +98,6 @@ const Home = () => {
 
           </div>
       </section>
-
-      <Contact data={contactConfig} />
 
     </div>
     </>
