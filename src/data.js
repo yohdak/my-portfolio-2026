@@ -355,15 +355,7 @@ export const projects = [
     gallery: ["/images/Hiller.jpg"],
     tags: ["Character Design", "Illustration"]
   },
-  {
-    id: "bahana",
-    title: "Bahana Food",
-    category: "Logo",
-    description: "",
-    image: "/images/bahana.jpg",
-    gallery: ["/images/bahana.jpg"],
-    tags: ["Character Design", "Illustration"]
-  },
+ 
   {
     id: "yohdak",
     title: "yohdak",
