@@ -16,7 +16,7 @@ export const projects = [
   {
     id: "1",
     title: "Gimersia 2025: Platformer Game",
-    category: "Game Development",
+    category: "Game",
     description: "Technical Artist & UI Implementer for a Top 40 Game Jam entry.", // [cite: 28, 29, 30]
     image: "/images/Gimersia/image.png", // Ganti dengan screenshot gamemu
     gallery: [
@@ -33,7 +33,7 @@ export const projects = [
   {
     id: "pkkmb-fmipa",
     title: "Pkkmb Logo",
-    category: "Logo Design",
+    category: "Logo",
     description: '', // [cite: 28, 29, 30]
     image: "/images/Pkkmb-logo/BEM_F_PKKMB_Logo_1.jpg", // Ganti dengan screenshot gamemu
     gallery: [
@@ -49,7 +49,7 @@ export const projects = [
   {
     id: 3,
     title: "Bäckerei Füchsel",
-    category: "Brand Identity",
+    category: "Logo",
     description: "Created a comprehensive visual identity for a bakery brand", // [cite: 11] (Linked to 'Freelance' achievement)
     image: "/images/Backerei/Bäckerei_Füchsel_Ig_backerei_4.png",
     gallery: [
@@ -60,14 +60,14 @@ export const projects = [
         "/images/Backerei/Bäckerei_Füchsel_Ig_backerei_5.png",
         "/images/Backerei/Bäckerei_Füchsel_Ig_backerei_6.png"
     ],
-    tags: ["Logo Design", "Branding", "Winner"] // [cite: 11]
+    tags: ["Logo", "Branding", "Winner"] // [cite: 11]
   },
 
   // === PROJECT 4: ILUSTRASI (Journey to Wellness) ===
   {
     id: 4,
     title: "The Journey to Wellness",
-    category: "Illustration & Comic",
+    category: "Illustration",
     description: "Digital comic and illustration project regarding wellness themes.", //
     image: "/images/The-Journey-to-Wellness/1.png",
     gallery: ["/images/The-Journey-to-Wellness/1.png",
@@ -88,7 +88,7 @@ export const projects = [
   {
     id: 5,
     title: "Event Branding",
-    category: "Visual Design",
+    category: "Illustration",
     description: "Managed end-to-end visual direction for major campus events. Created Instagram feeds and publication assets.", // [cite: 41] &
     image: "/images/Pkkmb/pkkmb6.jpg",
     gallery: [
@@ -108,7 +108,7 @@ export const projects = [
   {
     id: 6,
     title: "Tony’s Pizza",
-    category: "Logo Design",
+    category: "Logo",
     description: "Visual identity design for a pizza brand, focusing on bold and appetizing aesthetics.", //
     image: "/images/Tonys/Logofolio_Satusatu_Tony's_Pizza_3.png",
     gallery: [
@@ -117,13 +117,13 @@ export const projects = [
        "/images/Tonys-pizza/slide_3.png",
        "/images/Tonys/Logofolio_Satusatu_Tony's_Pizza_3.png"
     ],
-    tags: ["Logo Design", "F&B Branding"]
+    tags: ["Logo", "F&B Branding"]
   },
   {
     id: 7,
     title: "dr.Feri",
-    category: "Logo Design",
-    description: "Logo design for a medical professional.",
+    category: "Logo",
+    description: "Logo for a medical professional.",
     image: "/images/dr-feri/slide_4.png",
     gallery: [
        "/images/dr-feri/slide_1.png",
@@ -131,12 +131,12 @@ export const projects = [
        "/images/dr-feri/slide_3.png",
        "/images/dr-feri/slide_4.png"
     ],
-    tags: ["Logo Design", "Medical Branding"]
+    tags: ["Logo", "Medical Branding"]
   },
   {
     id: "bay-city",
     title: "Bay City Food",
-    category: "Logo Design",
+    category: "Logo",
     description: "",
     image: "/images/Bay-city/slide_3.png",
     gallery: [
@@ -144,12 +144,12 @@ export const projects = [
        "/images/Bay-city/slide_2.png",
        "/images/Bay-city/slide_3.png",
     ],
-    tags: ["Logo Design", "Medical Branding"]
+    tags: ["Logo", "Medical Branding"]
   },
   {
     id: "orbitalyo",
     title: "Orbitalyo",
-    category: "Web Experiment",
+    category: "Website",
     image: "/images/image.png",
     description: "An interactive 3D web experiment exploring the complexities of celestial mechanics. This project visualizes various planetary models—including Heliocentric and Geocentric systems—rendered in real-time using WebGL. It demonstrates the interplay between orbital physics and front-end performance, offering an immersive educational experience.",
     
@@ -159,7 +159,7 @@ export const projects = [
   {
     id: "Adroit",
     title: "Adroit Aerial Imaging",
-    category: "Logo Design",
+    category: "Logo",
     description: "",
     image: "/images/Adroit/slide_1.png",
     gallery: ["/images/Adroit/slide_1.png",
@@ -167,37 +167,37 @@ export const projects = [
        "/images/Adroit/slide_3.png",
        "/images/Adroit/slide_4.png"
     ],
-    tags: ["Logo Design", "Medical Branding"]
+    tags: ["Logo", "Medical Branding"]
   },
   {
     id: "Day-pkkmb",
     title: "Day Pkkmb",
-    category: "Visual Design",
+    category: "Social Media",
     description: "",
     image: "/images/Day-pkkmb/BEM_F_PKKMB_jadwal_1.png",
     gallery: ["/images/Day-pkkmb/BEM_F_PKKMB_jadwal_1.png",
        "/images/Day-pkkmb/BEM_F_PKKMB_jadwal_2.png",
        "/images/Day-pkkmb/BEM_F_PKKMB_jadwal_3.png"
     ],
-    tags: ["Logo Design", "Medical Branding"]
+    tags: ["Logo", "Medical Branding"]
   },
   {
     id: "eforto",
     title: "eforto",
-    category: "Logo Design",
-    description: "Logo design for a medical professional.",
+    category: "Logo",
+    description: "Logo for a medical professional.",
     image: "/images/eforto/slide_1.png",
     gallery: ["/images/eforto/slide_1.png",
        "/images/eforto/slide_2.png",
        "/images/eforto/slide_3.png",
        "/images/eforto/slide_4.png"
     ],
-    tags: ["Logo Design"]
+    tags: ["Logo"]
   },
   {
     id: "inhabit",
     title: "Inhabit",
-    category: "Logo Design",
+    category: "Logo",
     description: "",
     image: "/images/Inhabit/slide_1.png",
     gallery: ["/images/Inhabit/slide_1.png",
@@ -205,7 +205,7 @@ export const projects = [
        "/images/Inhabit/slide_3.png",
        "/images/Inhabit/slide_4.png"
     ],
-    tags: ["Logo Design"]
+    tags: ["Logo"]
   },
   {
     id: "lineart",
@@ -231,7 +231,7 @@ export const projects = [
   {
     id: "the-boomerang",
     title: "The Boomerang Club",
-    category: "Logo Design",
+    category: "Logo",
     description: "",
     image: "/images/The-boomerang/slide_3.png",
     gallery: [
@@ -246,8 +246,8 @@ export const projects = [
   {
     id: "rova",
     title: "Rova",
-    category: "Logo Design",
-    description: "Logo design project.",
+    category: "Logo",
+    description: "Logo project.",
     image: "/images/Rova/slide_1.png",
     gallery: [
        "/images/Rova/slide_1.png",
@@ -255,29 +255,29 @@ export const projects = [
        "/images/Rova/slide_3.png",
        "/images/Rova/slide_4.png",
     ],
-    tags: ["Logo Design"]
+    tags: ["Logo"]
   },
 
   // === PROJECT: Sitea ===
   {
     id: "sitea",
     title: "Sitea",
-    category: "Logo Design",
-    description: "Logo design project.",
+    category: "Logo",
+    description: "Logo project.",
     image: "/images/sitea/Hustle_Sitea_Sitea_P_3.png",
     gallery: 
        ["/images/sitea/Hustle_Sitea_Sitea_P_1.png",
       "/images/sitea/Hustle_Sitea_Sitea_P_2.png",
       "/images/sitea/Hustle_Sitea_Sitea_P_3.png"],
-    tags: ["Logo Design"]
+    tags: ["Logo"]
   },
 
   // === PROJECT: Tam ===
   {
     id: "tam",
     title: "Tambang Aneka Mineral",
-    category: "Logo Design",
-    description: "Logo design project.",
+    category: "Logo",
+    description: "Logo project.",
     image: "/images/Tam/slide_4.png",
     gallery: [
        "/images/Tam/slide_1.png",
@@ -285,13 +285,13 @@ export const projects = [
        "/images/Tam/slide_3.png",
        "/images/Tam/slide_4.png",
     ],
-    tags: ["Logo Design"]
+    tags: ["Logo"]
   },
 
   {
     id: "pkg",
     title: "PKG Tiling and Grout",
-    category: "Design",
+    category: "Logo",
     description: "PKG design project.",
     image: "/images/pkg/slide_1.png",
     gallery: [
@@ -307,7 +307,7 @@ export const projects = [
   {
     id: "t5",
     title: "T5 Project",
-    category: "Logo Design",
+    category: "Logo",
     description: "T5 design project.",
     image: "/images/t5/slide_3.png",
     gallery: [
@@ -321,7 +321,7 @@ export const projects = [
    {
     id: "mascot-pres",
     title: "Mascot Presentation",
-    category: "Presentation Design",
+    category: "Social Media",
     description: "Credits: Mascot character is a provided asset. My role: Presentation Design & Layout.",
     layout: "carousel",
     image: "/images/mascot-pres/BEM_F_PKKMB_p_mascot_5.jpg",
@@ -340,7 +340,7 @@ export const projects = [
   {
     id: "Mubes",
     title: "Mubes",
-    category: "poster",
+    category: "Poster",
     description: "",
     image: "/images/Himafis_Mubes_POSTR_3.3.jpg",
     gallery: ["/images/Himafis_Mubes_POSTR_3.3.jpg"],
@@ -349,7 +349,7 @@ export const projects = [
   {
     id: "Hiller",
     title: "Hiller",
-    category: "Logo Design",
+    category: "Logo",
     description: "",
     image: "/images/Hiller.jpg",
     gallery: ["/images/Hiller.jpg"],
@@ -358,7 +358,7 @@ export const projects = [
   {
     id: "bahana",
     title: "Bahana Food",
-    category: "Logo Design",
+    category: "Logo",
     description: "",
     image: "/images/bahana.jpg",
     gallery: ["/images/bahana.jpg"],
@@ -367,7 +367,7 @@ export const projects = [
   {
     id: "yohdak",
     title: "yohdak",
-    category: "",
+    category: "Illustration",
     description: "",
     image: "/images/Yohdak-mask/7.jpg",
     gallery: ["/images/Yohdak-mask/1.jpg",
@@ -396,7 +396,7 @@ export const projects = [
   {
     id: "Manarat",
     title: "Manarat",
-    category: "Logo Design",
+    category: "Logo",
     description: "",
     image: "/images/Manarat/Logo_Manarat_Manarat.jpg",
     gallery: ["/images/Manarat/Logo_Manarat_Manarat.jpg",
@@ -407,7 +407,7 @@ export const projects = [
   {
     id: "Migas",
     title: "Migas Transindo",
-    category: "Logo Design",
+    category: "Logo",
     description: "",
     image: "/images/Migas/1.jpg",
     gallery: ["/images/Migas/1.jpg",
@@ -418,7 +418,7 @@ export const projects = [
   {
     id: "Spex",
     title: "Spex Crete",
-    category: "Logo Design",
+    category: "Logo",
     description: "",
     image: "/images/Spex/Logo_Spex_Crete_spex_crete.jpg",
     gallery: ["/images/Spex/Logo_Spex_Crete_spex_crete.jpg"
@@ -438,7 +438,7 @@ export const projects = [
   {
     id: "Synerga",
     title: "Synerga",
-    category: "Logo Design",
+    category: "Logo",
     description: "",
     image: "/images/Synerga/Logo_Synerga_Synerga_1.0.png",
     gallery: ["/images/Synerga/Logo_Synerga_Synerga_1.0.png",
@@ -458,7 +458,7 @@ export const projects = [
   {
     id: "Bitbot",
     title: "bitbot",
-    category: "Logo Design",
+    category: "Logo",
     description: "",
     image: "/images/Logo_Bitbot_bitbot_2.0.jpg",
     gallery: ["/images/Logo_Bitbot_bitbot_2.0.jpg"],
@@ -467,7 +467,7 @@ export const projects = [
   {
     id: "dc",
     title: "D'Colonel",
-    category: "Logo Design",
+    category: "Logo",
     description: "",
     image: "/images/dc/Logofolio_Satusatu_D'Colonel_D'Colonel_1.0.png",
     gallery: ["/images/dc/Logofolio_Satusatu_D'Colonel_D'Colonel_1.0.png",
@@ -479,7 +479,7 @@ export const projects = [
   {
     id: "Pratama",
     title: "Pratama Graha Adaka",
-    category: "Logo Design",
+    category: "Logo",
     description: "",
     image: "/images/Logo_Pratama_Graha_Adaka_BNENH.jpg",
     gallery: ["/images/Logo_Pratama_Graha_Adaka_BNENH.jpg"],    
@@ -488,7 +488,7 @@ export const projects = [
   {
     id: "Renofax",
     title: "Renovax",
-    category: "Logo Design",
+    category: "Logo",
     description: "",
     image: "/images/Renofax/Logo_Renofax_RENOFAX_a.jpg",
     gallery: [
@@ -498,7 +498,7 @@ export const projects = [
   {
     id: "Rock",
     title: "Rock Ridge",
-    category: "Logo Design",
+    category: "Logo",
     description: "",
     image: "/images/rockridge.jpg",
     gallery: ["/images/rockridge.jpg",],    
@@ -508,7 +508,7 @@ export const projects = [
   {
     id: "Hausen",
     title: "Hausen",
-    category: "Apparel",
+    category: "Illustration",
     description: "",
     image: "/images/Hausen/Hustle_Hausen_Hausen_4.png",
     gallery: ["/images/Hausen/Hustle_Hausen_Hausen_4_5_4.png",
@@ -555,7 +555,7 @@ export const projects = [
   {
     id: "Smart-Computer",
     title: "Smart Computer",
-    category: "Logo Design",
+    category: "Logo",
     description: "",
     image: "/images/smart-computer.jpg",
     gallery: ["/images/smart-computer.jpg",],    
@@ -564,7 +564,7 @@ export const projects = [
   {
     id: "Wild",
     title: "Wild Riders",
-    category: "Logo Design",
+    category: "Logo",
     description: "",
     image: "/images/wild-riders.jpg",
     gallery: ["/images/wild-riders.jpg",],    

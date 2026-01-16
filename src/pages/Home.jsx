@@ -1,43 +1,50 @@
-import { useLayoutEffect } from 'react'; // <--- TAMBAH INI
+import { useLayoutEffect, useState, useRef } from 'react'; // <--- Tambah useRef (Opsional buat jaga-jaga)
 import { Link } from 'react-router-dom'; 
 import Hero from '../components/Hero';
-import Contact from '../components/Contact';
-// import Footer from '../components/Footer'; 
-// import BentoGrid from '../components/BentoGrid'; 
-import { profileData, projects, contactConfig } from '../data';
+import { profileData, projects } from '../data';
 import Navbar from '../components/Navbar';
 
 const Home = () => {
 
-  // === 1. JURUS PENGEMBALI POSISI (Restore Scroll) ===
-  // Setiap kali Home dimuat, dia cek "Tadi gue lagi di posisi mana?"
-// === 1. JURUS PENGEMBALI POSISI (Restore Scroll) ===
+  // ... (Code useLayoutEffect Restore Scroll JANGAN DIHAPUS, biarin aja sama kayak sebelumnya) ...
   useLayoutEffect(() => {
     const savedPosition = sessionStorage.getItem('homeScrollPos');
-    
     if (savedPosition) {
-      // Trik: Paksa CSS biar gak smooth scroll dulu sebentar
       document.documentElement.style.scrollBehavior = 'auto';
-      
-      // Langsung teleport ke posisi
-      window.scrollTo({
-        top: parseInt(savedPosition),
-        left: 0,
-        behavior: 'instant' // <--- Paksa Instan
-      });
-
-      // Balikin settingan scroll (opsional, kalau mau smooth lagi buat hal lain)
-      // Kalau gamau ribet, baris bawah ini hapus aja
-      setTimeout(() => {
-        document.documentElement.style.scrollBehavior = ''; 
-      }, 0);
+      window.scrollTo({ top: parseInt(savedPosition), left: 0, behavior: 'instant' });
+      setTimeout(() => { document.documentElement.style.scrollBehavior = ''; }, 0);
     }
   }, []);
 
-  // === 2. FUNGSI PENCATAT POSISI ===
-  // Dipanggil pas lu klik project yang buka halaman detail
   const saveScrollPosition = () => {
     sessionStorage.setItem('homeScrollPos', window.scrollY);
+  };
+
+
+  // === LOGIC FILTER ===
+  const [selectedCategory, setSelectedCategory] = useState('All');
+  const categories = ['All', ...new Set(projects.map(item => item.category))];
+
+  const filteredProjects = projects.filter(item => {
+    if (selectedCategory === 'All') return true;
+    return item.category === selectedCategory;
+  });
+
+  // === FUNGSI GANTI KATEGORI YANG AMAN ===
+  const handleCategoryChange = (cat) => {
+    // 1. Catat posisi scroll saat ini
+    const currentScroll = window.scrollY;
+
+    // 2. Ganti kategori
+    setSelectedCategory(cat);
+
+    // 3. Paksa browser tetap di posisi itu setelah render ulang (Anti-Lompat)
+    requestAnimationFrame(() => {
+      window.scrollTo({
+        top: currentScroll,
+        behavior: 'instant'
+      });
+    });
   };
 
   return (
@@ -47,16 +54,41 @@ const Home = () => {
       <Hero data={profileData} />
       
       <section id="projects" className="projects-section">
-          <h2 style={{marginBottom: '30px'}}>Selected Works</h2>
-          
-          {/* CONTAINER PINTEREST (5 Kolom) */}
-          <div className="pinterest-grid">
-              
-              {projects.map((item) => {
-                  
-                  // === LOGIC PILIH JALUR ===
+          <h2 style={{marginBottom: '20px'}}>Selected Works</h2>
 
-                  // KASUS A: Kalau ada directLink -> Pake tag <a> (Link Keluar)
+          {/* === BUTTONS FILTER === */}
+          <div className="filter-container" style={{ marginBottom: '30px', display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                type="button" // <--- PENTING: Biar gak dianggap submit form
+                onClick={(e) => {
+                    e.preventDefault(); // Biar gak ada event aneh-aneh
+                    handleCategoryChange(cat);
+                }}
+                style={{
+                  padding: '8px 16px',
+                  borderRadius: '20px',
+                  border: '1px solid #ccc',
+                  background: selectedCategory === cat ? '#333' : 'transparent',
+                  color: selectedCategory === cat ? '#fff' : 'inherit',
+                  cursor: 'pointer',
+                  transition: 'all 0.3s ease'
+                }}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
+          
+          {/* CONTAINER PINTEREST
+             Kasih 'minHeight' biar kalau hasil filternya dikit, 
+             halaman gak tiba-tiba memendek dan bikin scroll loncat.
+          */}
+          <div className="pinterest-grid" style={{ minHeight: '100vh' }}> 
+              
+              {filteredProjects.map((item) => {
+                  // ... (Isi card sama persis kayak sebelumnya) ...
                   if (item.directLink) {
                     return (
                       <a 
@@ -65,29 +97,24 @@ const Home = () => {
                         className="pin-item"
                         target="_blank"
                         rel="noopener noreferrer"
-                        // Gak perlu saveScrollPosition karena dia buka tab baru
                       >
                           <img src={item.image} alt={item.title} loading="lazy" />
-                          
                           <div className="pin-overlay">
                               <h3>{item.title}</h3>
-                              {/* Tambah panah dikit biar tau ini link keluar */}
                               <span className="pin-tag">{item.category} ↗</span>
                           </div>
                       </a>
                     );
                   }
 
-                  // KASUS B: Project Biasa -> Pake tag <Link> (Masuk Detail Internal)
                   return (
                       <Link 
                         to={`/project/${item.id}`} 
                         key={item.id} 
                         className="pin-item"
-                        onClick={saveScrollPosition} // <--- Fungsi Scroll dipanggil disini
+                        onClick={saveScrollPosition} 
                       >
                           <img src={item.image} alt={item.title} loading="lazy" />
-                          
                           <div className="pin-overlay">
                               <h3>{item.title}</h3>
                               <span className="pin-tag">{item.category}</span>
