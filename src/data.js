@@ -29,6 +29,7 @@ export const projects = [
     // Opsi: Tambah poster (gambar cover sebelum video diplay) biar gak hitam doang
     videoPoster: "/images/output_por4/slide_1.png", 
   },
+
   
   {
     id: "pkkmb-fmipa",
@@ -61,6 +62,24 @@ export const projects = [
         "/images/Backerei/Bäckerei_Füchsel_Ig_backerei_6.png"
     ],
     tags: ["Logo", "Branding", "Winner"] // [cite: 11]
+  },
+
+   {
+    id: "hokkaido-redesign",
+    title: "Hokkaido Redesign",
+    category: "Website",
+    image: "/images/Pasted image.png",
+    // TAMBAH LINK INI (Link Vercel project kedua):
+    directLink: "https://redesign-hokkaido.vercel.app/", 
+  },
+
+  {
+    id: "cmat-redesign",
+    title: "CMAT Redesign",
+    category: "Website",
+    image: "/images/Frame 9 (3).png",
+    // TAMBAH LINK INI (Link Vercel project kedua):
+    directLink: "https://cmat-redesign.vercel.app/", 
   },
 
   // === PROJECT 4: ILUSTRASI (Journey to Wellness) ===
