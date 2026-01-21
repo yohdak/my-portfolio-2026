@@ -399,15 +399,7 @@ export const projects = [
 "/images/Manarat/Logo_Manarat_Manarat1.jpg"],
     tags: ["Character Design", "Illustration"]
   },
-    {
-    id: "bundle",
-    title:"bundle",
-    category: "Poster",
-    description: "",
-    image: "/images/image copy.png",
-    gallery: ["/images/image copy.png"],
-    tags: ["Character Design", "Illustration"]
-  },
+  
   {
     id: "Migas",
     title: "Migas Transindo",
@@ -459,6 +451,17 @@ export const projects = [
     gallery: ["/images/Mekflu fly 2.jpg"],
     tags: ["Character Design", "Illustration"]
   },
+
+    {
+    id: "bundle",
+    title:"bundle",
+    category: "Poster",
+    description: "",
+    image: "/images/image copy.png",
+    gallery: ["/images/image copy.png"],
+    tags: ["Character Design", "Illustration"]
+  },
+  
   {
     id: "Bitbot",
     title: "bitbot",
