@@ -64,23 +64,7 @@ export const projects = [
     tags: ["Logo", "Branding", "Winner"] // [cite: 11]
   },
 
-   {
-    id: "hokkaido-redesign",
-    title: "Hokkaido Redesign",
-    category: "Website",
-    image: "/images/Pasted image.png",
-    // TAMBAH LINK INI (Link Vercel project kedua):
-    directLink: "https://redesign-hokkaido.vercel.app/", 
-  },
 
-  {
-    id: "cmat-redesign",
-    title: "CMAT Redesign",
-    category: "Website",
-    image: "/images/Frame 9 (3).png",
-    // TAMBAH LINK INI (Link Vercel project kedua):
-    directLink: "https://cmat-redesign.vercel.app/", 
-  },
 
   // === PROJECT 4: ILUSTRASI (Journey to Wellness) ===
   {
@@ -413,6 +397,15 @@ export const projects = [
     gallery: ["/images/Manarat/Logo_Manarat_Manarat.jpg",
 "/images/Manarat/Logo_Manarat_Manarat_2.0.jpg",
 "/images/Manarat/Logo_Manarat_Manarat1.jpg"],
+    tags: ["Character Design", "Illustration"]
+  },
+    {
+    id: "bundle",
+    title:"bundle",
+    category: "Poster",
+    description: "",
+    image: "/images/image copy.png",
+    gallery: ["/images/image copy.png"],
     tags: ["Character Design", "Illustration"]
   },
   {
