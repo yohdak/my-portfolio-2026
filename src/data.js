@@ -6,7 +6,7 @@ import profilePhoto2 from './assets/jesril.png'; // New avatar
 export const profileData = {
   name: "Pramudya Jesril Pratama",
   role: "Physics Student & Graphic Designer",
-  bio: "Creative Technologist & Graphic Designer with a background in Computational Physics. Currently focusing on Technical Art to bridge the gap between creative vision and technical execution. Experienced in automating design pipelines using Python (BRIN), creating award-winning visual identities, and developing game mechanics (Godot). An adaptive problem solver who combines mathematical logic with artistic sensibility to build efficient workflows.
+  bio: "Creative Technologist & Graphic Designer with a background in Computational Physics. Currently focusing on Technical Art to bridge the gap between creative vision and technical execution. Experienced in automating design pipelines using Python (BRIN), creating award-winning visual identities, and developing game mechanics (Godot). An adaptive problem solver who combines mathematical logic with artistic sensibility to build efficient workflows.",
   avatar2: profilePhoto2,
 };
 
