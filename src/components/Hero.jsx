@@ -43,7 +43,7 @@ const Hero = ({ data }) => {
         <div className="bio-section">
           <p className="bio">{data.bio}</p>
           <a 
-            href="/cv-pramudya-jesril3.pdf" 
+            href="/cv-pramudya-jesril-pratama.pdf" 
             download="Pramudya_Jesril_CV.pdf"
             className="btn-contact"
           >
