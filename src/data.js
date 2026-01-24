@@ -359,36 +359,7 @@ export const projects = [
     gallery: ["/images/Hiller.jpg"],
     tags: ["Character Design", "Illustration"]
   },
- 
-  {
-    id: "yohdak",
-    title: "yohdak",
-    category: "Illustration",
-    description: "",
-    image: "/images/Yohdak-mask/7.jpg",
-    gallery: ["/images/Yohdak-mask/1.jpg",
-"/images/Yohdak-mask/2.jpg",
-"/images/Yohdak-mask/3.jpg",
-"/images/Yohdak-mask/4.jpg",
-"/images/Yohdak-mask/5.jpg",
-"/images/Yohdak-mask/6.jpg",
-"/images/Yohdak-mask/7.jpg",
-"/images/Yohdak-mask/8.jpg",
-"/images/Yohdak-mask/9.jpg",
-"/images/Yohdak-mask/10.jpg",
-"/images/Yohdak-mask/11.jpg",
-"/images/Yohdak-mask/12.jpg",
-"/images/Yohdak-mask/13.jpg",
-"/images/Yohdak-mask/14.jpg",
-"/images/Yohdak-mask/15.jpg",
-"/images/Yohdak-mask/16.jpg",
-"/images/Yohdak-mask/17.jpg",
-"/images/Yohdak-mask/18.jpg",
-"/images/Yohdak-mask/19.jpg",
-"/images/Yohdak-mask/20.jpg",
-"/images/Yohdak-mask/21.jpg",],
-    tags: ["Character Design", "Illustration"]
-  },
+
   {
     id: "Manarat",
     title: "Manarat",
